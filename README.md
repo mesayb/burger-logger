@@ -21,10 +21,16 @@ The app will store every burger in a database, whether devoured or not.
 ```
 
 
-[Deployed App can be found on Heroku](https://dashboard.heroku.com/apps/employee-summary)
+[Deployed App can be found on Heroku](https://limitless-caverns-03897.herokuapp.com/)
 
 
 
 ## Technologies Used
  MySQL, Node, Express, Handlebars and a custom ORM
+ 
+ 
+ 
+ 
+ 
+ 
 
