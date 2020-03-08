@@ -1,38 +1,71 @@
-<h1>Cats!</h1>
-
-<h2>Cats that are not sleepy!</h2>
-
-<ul>
-  {{#each cats}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Cats that are sleepy!</h2>
-
-<ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Cat</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Cat Name:</label>
-    <input type="text" id="ca" name="name">
+<div class="container border w-auto mt-5 pb-5">
+  <div class="row">
+    <div class="col text-center mb-4 display-3">
+      <img src="burger2.png">
+      <h1>Eat-Da-Burger!</h1>
+    </div>
   </div>
+  <div class="row">
+    <div class="form col-sm-4">
 
-  <div class="form-group">
-    <label for="sleepy">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
+    </div>
+    <div class="form col-sm-4 d-flex text-center">
+      <form class="create-form">
+        <div class="form-group">
+
+
+          <input type="text" id="burger">
+            </div>
+          <button type="submit" class="submit btn btn-primary btn-sm">Add Burger</button>
+      
+      </form>
+
+
+    </div>
+    <div class="form col-sm-4">
+
+    </div>
   </div>
+  <div class="row">
 
-  <button type="submit">Add Cat</button>
-</form>
+    {{!-- burger to be devoured --}}
+    <div class="col-sm-3 text-center  m-5">
+      {{#each burger}}
+      {{#unless devoured}}
+      <button class="btn-lg btn-block btn-light border-primary devour" disabled><img src="./burger2.png" width="30px"
+          height="30px">{{this.burger_name}}</button>
+      {{/unless}}
+      {{/each}}
+    </div>
+
+    {{!-- devour button --}}
+    <div class="col-sm-2 text-center  m-5">
+      <ul>
+        {{#each burger}}
+        {{#unless devoured}}
+        <button type="button" class="devoured btn btn-warning btn-lg " data-id="{{this.id}}">Devour</button>
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+
+
+{{!-- <button type="button" class="devour btn btn-success"
+                                    data-id="{{this.id}}">Devour!</button> --}}
+
+
+
+    {{!-- burger devoured --}}
+    <div class="col-sm-3 text-center  m-5">
+      <ul>
+        {{#each burger}}
+        {{#if devoured}}
+        <button class="btn-lg btn-block btn-light border-primary" disabled><img src="./burger2.png" width="30px"
+            height="30px">{{this.burger_name}}</button>
+        {{/if}}
+        {{/each}}
+      </ul>
+
+    </div>
+  </div>
+</div>

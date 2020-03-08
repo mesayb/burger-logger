@@ -16,27 +16,26 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/api/burger", (req, res) => {
-  burgers.insertOne([
-    "buyer_name", "devoured"
-  ], [
-    req.body.name, req.body.devoured
+
+router.post("/api/burgers", (req, res) => {
+  console.log("post = " , req.body);
+  burgers.insertOne( [
+    req.body.burger_name
   ], function(result) {
     // Send back the ID of the new quote
-    res.json({ id: result.insertId });
+    // res.json({ id: result.insertId });
+    res.redirect('/')
   });
 });
 
-router.put("/api/burger/:id", (req, res) => {
+router.put("/api/burgers/:id", (req, res) => {
   let condition = "id = " + req.params.id;
 
   console.log("condition", condition);
 
-  burgers.update({
-    devoured: req.body.devoured
-  }, condition, function(result) {
+  burgers.updateOne( condition, function(result) {
     if (result.changedRows == 0) {
-   
+
       return res.status(404).end();
     } else {
       res.status(200).end();
@@ -44,8 +43,5 @@ router.put("/api/burger/:id", (req, res) => {
   });
 });
 
-
-
 // Export routes for server.js to use.
 module.exports = router;
-
