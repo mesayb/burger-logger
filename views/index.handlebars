@@ -1,8 +1,8 @@
-<div class="container main w-auto mt-5 pb-5">
-  <div class= "container">
+<div class="container main w-auto mt-5 pb-5 ">
+  <div class= "container ">
   <div class="row">
-    <div class="col text-center mb-4 display-3">
-      <img src="burger2.png">
+    <div class="col text-center mb-2 display-3">
+      <img class="shadow-lg rounded-circle" src="burger2.png">
       <h1>Eat-Da-Burger!</h1>
     </div>
   </div>
@@ -15,7 +15,7 @@
 
         <input class="form-control text-center" type="text" id="burger">
         <div class=" d-flex justify-content-center">
-          <button type="submit" class="submit btn btn-primary btn-sm mt-3  d-flex justify-content-center">Add
+          <button type="submit" class="submit btn btn-primary btn-sm mt-2  d-flex justify-content-center">Add
             Burger</button>
         </div>
 
@@ -28,7 +28,7 @@
   <div class="row">
 
     {{!-- burger to be devoured --}}
-    <div class="col-sm-3 text-center  m-5">
+    <div class="col-sm-3 text-center  ml-5">
       <h4>Ready to devour</h4>
       {{#each burger}}
       {{#unless devoured}}
@@ -43,20 +43,15 @@
       <ul>
         {{#each burger}}
         {{#unless devoured}}
-        <button type="button" class="devoured btn btn-warning btn-lg mt-2" data-id="{{this.id}}">Devour</button>
+        <button type="button" class="devoured btn btn-warning btn-lg mb-2 mt-0 pl-5 pr-5" data-id="{{this.id}}">Devour</button>
         {{/unless}}
         {{/each}}
       </ul>
     </div>
 
 
-    {{!-- <button type="button" class="devour btn btn-success"
-                                    data-id="{{this.id}}">Devour!</button> --}}
-
-
-
     {{!-- burger devoured --}}
-    <div class="col-sm-3 text-center  m-5">
+    <div class="col-sm-3 text-center  mr-1">
       <h4>Devoured</h4>
       <ul>
         {{#each burger}}
